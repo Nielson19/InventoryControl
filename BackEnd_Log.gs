@@ -7,12 +7,6 @@ function Init(sheetName){ // runs all the Google Sheet Methods
 
 function NameInput() {
 
-  //user database
-
-  // var authUsers = {Edward_Ferreira: {password: "3dw@rd"},
-  //                  Ruben_Fuentes: {password: "Rub3n"},
-  //                   Juan_Guerra: {password: "J0ch3"},
-  //                   Daniel_Escobar: {password: "D@n13l"}};
 
   var ui = SpreadsheetApp.getUi();
 
