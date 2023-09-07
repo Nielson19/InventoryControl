@@ -1,4 +1,4 @@
-  // This section will manage the input of the user to the inventory
+  
 
 
 function UserInputOutcome() { // After prompting it collects and sends to Inventory Log and substract from current inventory

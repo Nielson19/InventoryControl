@@ -7,17 +7,35 @@ function Init(sheetName){ // runs all the Google Sheet Methods
 
 function NameInput() {
 
+  var authUsers = ["3dw@rd","Rub3n","J0ch3","D@n13l"];
 
   var ui = SpreadsheetApp.getUi();
+  var isUser = false;
 
-  var userName = ui.prompt("Please Enter Your Name: "); //later add passcodes to certain users;
-  while (userName.getResponseText() == false){ // make an array with auth of certain users (DONE)
-    ui.alert("Please Insert a Valid Name");
-    console.log("Error");
-    userName = ui.prompt("Please Enter Your Name: "); //later add passcodes to certain users;
+  var userPass = ui.prompt("Please Enter Your User Passcode: ").getResponseText(); //later add passcodes to certain users;
+
+  for (var i = 0; i <= authUsers.length; i++){
+
+    var element = authUsers[i]; //test variable 
+
+
+    if (authUsers[i] == userPass){
+      isUser = true;
+      break;
+    }
+
   }
-  console.log("Passed");
-  return userName.getResponseText();
+
+    while (isUser == false){ // is not working figure out the reason is not detecting the element
+      ui.alert("Please Insert a Valid Name");
+      console.log("Error");
+      return NameInput();
+    }
+
+    
+  console.log("Passed is " + userPass);
+
+  return userPass;
 }
 
 
