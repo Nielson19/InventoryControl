@@ -1,4 +1,4 @@
-  
+  //Out Item
 
 
 function UserInputOutcome() { // After prompting it collects and sends to Inventory Log and substract from current inventory
