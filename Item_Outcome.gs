@@ -1,4 +1,4 @@
-  
+  //Out Item
 
 
 function UserInputOutcome() { // After prompting it collects and sends to Inventory Log and substract from current inventory
@@ -54,6 +54,7 @@ function UserInputOutcome() { // After prompting it collects and sends to Invent
   }
 
   ui.alert(warnLog);
+  ClearEnd();
 
 }
 

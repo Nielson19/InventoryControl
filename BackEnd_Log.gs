@@ -125,5 +125,23 @@ function UpdateInvetoryOutput(skuID, amountNum, warnLogIn){
 
   }
 
+  function ClearEnd(){
+    var sheet = Init("Input Inventory");
+
+    for (let i = 0; i <= 17;i++){
+      var currentCell = sheet.getRange(6 + i, 2);
+      var amountCell = sheet.getRange(6 + i, 3);
+      if (currentCell.getValue() != ""){
+        currentCell.clearContent();
+        amountCell.clearContent();
+      }
+
+    }
+
+     
+  }
+    
+  
+
 
 

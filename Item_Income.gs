@@ -1,4 +1,3 @@
-// This section will manage the input of the user to the inventory
 
 
 function UserInputIncome() { // After prompting it collects and sends to Inventory Log and substract from current inventory
@@ -55,5 +54,6 @@ function UserInputIncome() { // After prompting it collects and sends to Invento
 
   }
   ui.alert(warnLog);
+  ClearEnd();
 }
 
