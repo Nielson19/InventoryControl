@@ -1,4 +1,3 @@
-// This section will manage the input of the user to the inventory
 
 
 function UserInputIncome() { // After prompting it collects and sends to Inventory Log and substract from current inventory
@@ -51,38 +50,10 @@ function UserInputIncome() { // After prompting it collects and sends to Invento
       }
 
     }
-    // else{
-    //   // Display a dialog box with a message and "Yes" and "No" buttons.
-    //   // The user can also close the dialog by clicking the close button in its title bar.
-    //   var ui = SpreadsheetApp.getUi();
-    //   var response = ui.alert("Item " + currentSKU + " not found, Do you want to add it as a new Item?", ui.ButtonSet.YES_NO);
-
-      
-    //   if (response == ui.Button.YES) {
-
-    //     var currentCell = scriptCur.getRange("C4").getValue(), row = 4;
-
-    //     while (currentCell){
-    //       row++;
-    //       currentCell = scriptCur.getRange(row , 3).getValue();
-          
-    //     }
-    //     currentCell = scriptCur.getRange(row, 3).setValue(logInfo.amount);
-    //     currentCell = scriptCur.getRange(row, 2).setValue(logInfo.sku);
-
-      
-    //   } else {
-    //       Logger.log(
-    //           'The user clicked "No" or the close button in the dialog\'s title bar.'
-    //       );
-    //   }
-
-    //       } 
-    //     }
-
-
+  
 
   }
   ui.alert(warnLog);
+  ClearEnd();
 }
 

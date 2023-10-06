@@ -1,4 +1,4 @@
-  
+  //Out Item
 
 
 function UserInputOutcome() { // After prompting it collects and sends to Inventory Log and substract from current inventory
@@ -54,33 +54,9 @@ function UserInputOutcome() { // After prompting it collects and sends to Invent
   }
 
   ui.alert(warnLog);
+  ClearEnd();
 
 }
 
-// function UpdateInvetoryOutput(skuID, amountNum, warnLogIn){
-//   var scriptCur = Init("Inventory Current Test");
-//   var currentRow = 4, currentColumn = 2;
-//   var currentCell = scriptCur.getRange(currentRow, currentColumn).getValue();
 
-//   while (currentCell){
-//     if (currentCell == skuID){
-//       if (newAmount < 0){
-//         return warnLogIn.push("- Item: " + skuID + " does not have enough in stock\n");
-//       }
-//       else{
-//         var amountTargetCell  = scriptCur.getRange(currentRow, 3).getValue();
-//         console.log(amountTargetCell);
-//         var newAmount =  amountTargetCell - amountNum;
-//         scriptCur.getRange(currentRow, 3).setValue(newAmount);
-
-//         return warnLogIn.push("- Item: " + skuID + " new amount of " + newAmount + "\n");
-//       }
-//     }
-//     currentRow++;
-//     currentCell = scriptCur.getRange(currentRow, currentColumn).getValue();
-
-//     }
-  
-
-//   }
 
