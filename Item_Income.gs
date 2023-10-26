@@ -16,8 +16,8 @@ function UserInputIncome() { // After prompting it collects and sends to Invento
 
   for (let i = 0; i <= 16; i++){ // analyzing the input of the user
 
-    var currentSKU = scriptInput.getRange(i + 6, 2).getValue(), 
-    currentVal = scriptInput.getRange(i + 6, 3).getValue();
+    var currentSKU = scriptInput.getRange(i + 6, 2).getValue();
+    var currentVal = scriptInput.getRange(i + 6, 3).getValue();
     if (currentSKU && currentVal){
 
       logInfo.sku = currentSKU;
@@ -32,8 +32,7 @@ function UserInputIncome() { // After prompting it collects and sends to Invento
       while (curCellLog){ 
           row++;
           curCellLog = scriptLog.getRange(row, 4).getValue();
-
- 
+    
       } 
 
 
@@ -45,7 +44,7 @@ function UserInputIncome() { // After prompting it collects and sends to Invento
         scriptLog.getRange(row, 9).setValue("In");
 
 
-        UpdateInvetoryInput(logInfo.sku, logInfo.amount, warnLog); // updates the inventory in the current sheet
+        UpdateInventoryInput(logInfo.sku, logInfo.amount, warnLog); // updates the inventory in the current sheet
         
       }
 

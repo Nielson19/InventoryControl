@@ -44,7 +44,7 @@ function UserInputOutcome() { // After prompting it collects and sends to Invent
         scriptLog.getRange(row, 9).setValue("Out");
 
 
-        UpdateInvetoryOutput(logInfo.sku, logInfo.amount, warnLog); // updates the inventory in the current sheet
+        UpdateInventoryOutput(logInfo.sku, logInfo.amount, warnLog); // updates the inventory in the current sheet
         
 
 
@@ -55,6 +55,8 @@ function UserInputOutcome() { // After prompting it collects and sends to Invent
 
   ui.alert(warnLog);
   ClearEnd();
+
+  return;
 
 }
 

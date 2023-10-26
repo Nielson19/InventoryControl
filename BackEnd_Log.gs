@@ -7,7 +7,7 @@ function Init(sheetName){ // runs all the Google Sheet Methods
 
 function NameInput() {
 
-  var authUsers = ["3dw@rd","Rub3n","J0ch3","D@n13l"];
+  var authUsers = ["3dw@rd","Rub3n","J0ch3","D@n13l"]; //users passwords
 
   var ui = SpreadsheetApp.getUi();
   var isUser = false;
@@ -65,41 +65,52 @@ function CurrentLoging(){
 }
 
 
-function UpdateInvetoryInput(skuID, amountNum, warnLogIn){
-  var scriptCur = Init("Inventory Current Test");
-  var currentRow = 4, currentColumn = 2;
+function UpdateInventoryInput(skuID, amountNum, warnLogIn) {
+  var scriptCur = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Inventory Current Test");
+  var currentRow = 4;
+  var currentColumn = 2;
   var currentCell = scriptCur.getRange(currentRow, currentColumn).getValue();
 
-  while (currentCell){
-    if (currentCell == skuID){
-      if (newAmount < 0){
-        return warnLogIn.push("- Item: " + skuID + " does not have enough in stock\n");
-      }
-      else{
-        var amountTargetCell  = scriptCur.getRange(currentRow, 3).getValue();
-        console.log(amountTargetCell);
-        var newAmount =  amountTargetCell + amountNum;
+  while (currentCell) {
+    if (currentCell == skuID) {
+      var amountTargetCell = scriptCur.getRange(currentRow, 3).getValue();
+      
+      if (amountTargetCell + amountNum < 0) {
+        warnLogIn.push("- Item: " + skuID + " does not have enough in stock\n");
+      } else {
+        var newAmount = amountTargetCell + amountNum;
         scriptCur.getRange(currentRow, 3).setValue(newAmount);
-
-        return warnLogIn.push("- Item: " + skuID + " new amount of " + newAmount + "\n");
+        warnLogIn.push("- Item: " + skuID + " new amount of " + newAmount + "\n");
       }
+      return;
     }
+
     currentRow++;
     currentCell = scriptCur.getRange(currentRow, currentColumn).getValue();
-
   }
-  
 
+  // If the SKU is not found, you might want to add it to the inventory.
+  // Assuming that you want to add the SKU at the first empty row (assuming that there is an empty cell in the SKU column).
+
+  // Find the first empty cell in the SKU column and add the new SKU and amount.
+  while (scriptCur.getRange(currentRow, currentColumn).getValue()) {
+    currentRow++;
+  }
+
+  scriptCur.getRange(currentRow, currentColumn).setValue(skuID);
+  scriptCur.getRange(currentRow, currentColumn + 1).setValue(amountNum);
+  warnLogIn.push("- Item: " + skuID + " new amount of " + amountNum + "\n");
 }
 
-function UpdateInvetoryOutput(skuID, amountNum, warnLogIn){
+
+function UpdateInventoryOutput(skuID, amountNum, warnLogIn){
   var scriptCur = Init("Inventory Current Test");
   var currentRow = 4, currentColumn = 2;
   var currentCell = scriptCur.getRange(currentRow, currentColumn).getValue();
 
   while (currentCell){
-    if (currentCell == skuID){
-      if (newAmount < 0){
+    if (currentCell == skuID){ // find the item by the SKU ID
+      if (newAmount <= 0){ // condition if stock is not enough
         return warnLogIn.push("- Item: " + skuID + " does not have enough in stock\n");
       }
       else{
@@ -141,6 +152,7 @@ function UpdateInvetoryOutput(skuID, amountNum, warnLogIn){
      
   }
     
+  //TODO make sure that if the sku does not appear in the inventory add the codes in the list
   
 
 
